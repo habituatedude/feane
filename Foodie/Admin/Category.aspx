@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Category.aspx.cs" Inherits="Foodie.Admin.Category" %>
+<%@ Import Namespace="Foodie" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
@@ -89,23 +90,25 @@
 
                                                     <asp:Repeater ID="rCategory" runat="server">
                                                         <HeaderTemplate>
-                                                            <table>
+                                                            <table class="table data-table-export table-hover nowrap">
                                                                 <tr>
-                                                                    <th>Name</th>
+                                                                    <th class="table-plus">Name</th>
                                                                     <th>Image</th>
                                                                     <th>IsActive</th>
                                                                     <th>CreatedDate</th>
-                                                                    <th>Action</th>
+                                                                    <th class="datatable-nosort">Action</th>
                                                                 </tr>
                                                             </table>
 
                                                             </HeaderTemplate>
                                                         <ItemTemplate>
                                                             <tr>
-                                                                <td><%#Eval("Name") %></td>
-                                                                <td><%#Eval("Image") %></td>
-                                                                <td><%#Eval("IsActive") %></td>
-                                                                <td><%#Eval("CreatedDate") %></td>
+                                                                <td><%# Eval("Name") %></td>
+                                                                <td><%# Eval("ImageUrl") %>
+                                                                    <img alt="" src="<%# Utils.GetImageUrl(Eval("ImageUrl")) %>" />
+                                                                </td>
+                                                                <td><%# Eval("IsActive") %></td>
+                                                                <td><%# Eval("CreatedDate") %></td>
                                                                 <td></td>
                                                             </tr>
                                                         </ItemTemplate>

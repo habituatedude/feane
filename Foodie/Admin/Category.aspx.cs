@@ -22,7 +22,7 @@ namespace Foodie.Admin
             if (!IsPostBack) 
             {
                 Session["breadCrum"] = "Category";
-
+                getCategories();
             }
             lblMsg.Visible = false;
         }
